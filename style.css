@@ -90,7 +90,12 @@ header {
   display: flex;
   align-items: center;
   overflow: hidden;
-  transition: height 0.2s ease;
+  transform: scale(0);
+  transition: transform 0.5s ease, height 0.2s ease;
+  /* transition: max-height 0.2s ease; */
+}
+.wrapper.active-popup {
+  transform: scale(1);
 }
 .wrapper.active {
   height: 520px;
@@ -101,24 +106,44 @@ header {
 }
 .wrapper .form-box.login {
   /* display: none; */
+  /* transition: height 0.3s ease-out, opacity 0.3s ease 0.5s; */
   transition: transform 0.18s ease;
-  /* transition: all 1s ease-out; */
   transform: translateX(0);
 }
-.wrapper .active.form-box.login {
+.wrapper.active .form-box.login {
+  transition: none;
+  transform: translateX(-400px);
+}
+.wrapper .form-box.register {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+}
+.wrapper.active .form-box.register {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+/* .wrapper .form-box.login {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+} */
+/* transition: all 1s ease-out; */
+/* display: none; */
+/* .wrapper .active.form-box.login {
   transition: none;
   transform: translateY(-400px);
 }
 .wrapper .form-box.register {
   position: absolute;
+  transition: none;
   transform: translateX(400px);
 }
 .wrapper .active.form-box.register {
-  /* display: none; */
   transition: transform 0.18s ease;
-  /* transition: all 1s ease-out; */
   transform: translateX(0);
-}
+} */
+/* transition: all 1s ease-out; */
+/* display: none; */
 
 .wrapper .icon-close {
   position: absolute;
